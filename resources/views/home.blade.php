@@ -16,7 +16,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                        <div>Username: <b>{{ auth()->user()->name }}</b></div>
+                        <div>Email: <b>{{ auth()->user()->email }}</b></div><br>
                     <a href="{{ route('post') }}"><b>{{ __('You are logged in!') }}</b></a>
                 </div>
             </div>

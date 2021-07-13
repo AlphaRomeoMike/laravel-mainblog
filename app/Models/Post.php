@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    public $fillable = [];
+    public $fillable = ['user_id', 'title', 'description'];
 
     public function user()
     {
