@@ -43,6 +43,11 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <a href="{{ route('post') }}" class="nav-link">
+                                Posts
+                            </a>
+                        </li>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -56,10 +61,9 @@
                                 </li>
                             @endif
                         @else
-                        <li class="nav-item">
-                            <a href="{{ route('post') }}" class="nav-link">
-                                Posts
-                            </a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('user/{id}', Auth::user()->id) }}">{{ __("My Posts") }}</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -90,7 +94,13 @@
         </main>
     </div>
     <footer class="footer mt-auto bg-dark text-light w-100 pb-3 pt-3">
-        <b><div class="text-center">&copy; Abdul Rafay Modi - {{ date('D/M/Y') }}<a href="https://www.github.com/AlphaRomeoMike" class="ml-3"><i class="fab fa-github"></i><a href="https://stackoverflow.com/users/9154373/runtimeterror" class="ml-3"><i class="fab fa-stack-overflow"></i><a></div></b>
+        <b>
+            <div class="text-center">&copy; Abdul Rafay Modi - {{ date('D/M/Y') }}
+                <a href="https://www.github.com/AlphaRomeoMike" class="ml-1"><i class="fab fa-github"></i>
+                <a href="https://stackoverflow.com/users/9154373/runtimeterror" class="ml-1"><i class="fab fa-stack-overflow"></i>
+                <a href="https://www.linkedin.com/in/rafaymodi18/" class="ml-1"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </b>
         
     </footer>
 </body>

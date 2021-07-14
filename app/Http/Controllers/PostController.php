@@ -44,7 +44,7 @@ class PostController extends Controller
 
     public function edit($id)
     {
-        $data = Post::Find($id);
+        $data = Post::findOrFail($id);
         if(Auth::user()->id != $data->user_id)
         {
             return redirect('post')->with('error', 'You cannot edit this post');
@@ -93,5 +93,19 @@ class PostController extends Controller
             Post::Where('id', '=', $id)->delete();
             return redirect('post')->with('success', 'Post has been deleted');
         }
+    }
+
+    public function UserPosts($id)
+    {
+        $data = Post::where('user_id', '=', $id)->paginate(10);
+
+        return view('posts.user', ['data' => $data]);
+    }
+
+    public function find($id)
+    {
+        $data = Post::findOrFail($id);
+
+        return view('posts.show', ['data' => $data]);
     }
 }

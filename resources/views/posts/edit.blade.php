@@ -16,7 +16,7 @@
                         @error('title')
                            <div class="text-danger">{{ $message }} *</div>
                         @enderror
-                        <input type="text" name="title" id="title" class="form-control" placeholder="Enter your post title" value="{{ $data['title'] }}">
+                        <input type="text" name="title" id="title" class="form-control border-dark" placeholder="Enter your post title" value="{{ $data['title'] }}">
                         <small><b>Post title of your choice</b></small>
                      </div>
                      <div class="form-group">
@@ -24,7 +24,7 @@
                         @error('description')
                            <div class="text-danger">{{ $message }} *</div>
                         @enderror
-                        <input type="text" name="description" id="description" class="form-control" placeholder="Enter your post description" value="{{ $data['description'] }}">
+                        <input type="text" name="description" id="description" class="form-control border-dark" placeholder="Enter your post description" value="{{ $data['description'] }}">
                         <small><b>Post description of your choice</b></small>
                      </div>
                      <div class="row">
